@@ -3,18 +3,60 @@
         xmlns:vm="using:APKScope.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        TransparencyLevelHint="AcrylicBlur"
+        Background="Transparent"
+        ExtendClientAreaToDecorationsHint="True"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        Width="600"
+        Height="400"
         x:Class="APKScope.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="APKScope">
+        Title="APKScope by wheatfox">
 
     <Design.DataContext>
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
         <vm:MainWindowViewModel/>
     </Design.DataContext>
 
-    <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        <Panel>
+            <ExperimentalAcrylicBorder IsHitTestVisible="False">
+                <ExperimentalAcrylicBorder.Material>
+                    <ExperimentalAcrylicMaterial
+                        BackgroundSource="Digger"
+                        TintColor="Black"
+                        TintOpacity="1"
+                        MaterialOpacity="0.65" />
+                </ExperimentalAcrylicBorder.Material>
+            </ExperimentalAcrylicBorder>
+            
+        <Grid Grid.Row="1" Grid.Column="1" Margin="10, 40, 10, 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="200"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
 
+            <Grid Grid.Row="0" Background="Transparent"  Margin="0,0,0,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="Gray" CornerRadius="8" Width="128" Height="128" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <TextBlock Text="Icon" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" />    
+                </Border>
+                
+                <StackPanel Grid.Column="1" Margin="10, 40, 10, 10">
+                    <TextBlock Text="Package Name: (placeholder)" Foreground="White" FontSize="14" Margin="0,0,0,10"/>
+                    <TextBlock Text="Version: (placeholder)" Foreground="White" FontSize="14" Margin="0,0,0,10"/>
+                    <TextBlock Text="Permissions: (placeholder)" Foreground="White" FontSize="14"/>
+                </StackPanel>
+                
+            </Grid>
+
+            <Border Grid.Row="1" Background="Transparent" CornerRadius="8" Padding="10">
+                <TextBlock Text="File Tree View (Placeholder)" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            </Border>
+        </Grid>
+        
+        </Panel>
 </Window>
