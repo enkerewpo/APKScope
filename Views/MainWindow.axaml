@@ -12,7 +12,7 @@
         x:Class="APKScope.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/avalonia-logo.ico"
-        Title="APKScope by wheatfox">
+        Title="APKScope">
 
     <Design.DataContext>
         <vm:MainWindowViewModel/>
